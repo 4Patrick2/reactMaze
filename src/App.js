@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from "./Navbar"
+import Food from "./pages/Food"
+import Maze from "./pages/Maze"
+import Home from "./pages/Home"
+import { Route, Routes} from "react-router-dom"
 
 function App() {
+  // let Component
+  // switch (window.location.pathname) {
+  //   case "/":
+  //     Component = Home
+  //     break
+  //   case "/Maze":
+  //     Component = Maze
+  //     break
+  //   case "/Food":
+  //     Component = Food
+  //     break
+  // }
+
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <div className="container">
+        {/* // <Component />  */}
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/Maze" element={<Maze />} />
+            <Route path="/Food" element={<Food />} />
+        </Routes>
+      </div>
+    </>
   );
 }
 
