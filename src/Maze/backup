@@ -23,45 +23,37 @@ export default function Maze() {
         // ctx.fillStyle = "rgb(0 0 200 / 50%";
         // ctx.fillRect(30,30,50,50)
 
-        ctx.clearRect(0, 0, canvasSizeX, canvasSizeY);
-
+        
         let tileSizeX = canvasSizeX / xs;
         let tileSizeY = canvasSizeY / ys;
         ctx.lineWidth = 3;
         
-        //   walls = [up,   right, down, left]
+
         let counter = 0
         let offset = 0
-        for (let y =0; y < ys; y++) {
-            for (let x=0; x<xs; x++) {
+        for (let i =0; i < xs; i++) {
+            for (let j=0; j<ys; j++) {
                 if (counter%2===offset) {
-                    //ctx.fillStyle = `rgb(243 167 18)`;
-                    ctx.fillStyle = `rgb(157 203 186)`;
+                    ctx.fillStyle = `rgb(243 167 18)`;
                 } else {
                     ctx.fillStyle = `rgb(157 203 186)`;
                 }
-                ctx.fillRect(x*tileSizeX, y*tileSizeY, tileSizeX, tileSizeY);
+                ctx.fillRect(j*tileSizeX, i*tileSizeY, tileSizeX, tileSizeY);
                 counter++;
 
                 // Vertical lines
-                if (m.maze[((xs*y)+x)].walls[2]) {
-                //if (true) {
-                    ctx.beginPath();
-                    ctx.lineStyle = "rgb(41 51 92)"
-                    ctx.moveTo((x+1)*tileSizeX, y*tileSizeY);
-                    ctx.lineTo((x+1)*tileSizeX, (y+1)*tileSizeY);
-                    ctx.stroke();
-                }
+                ctx.beginPath();
+                ctx.lineStyle = "rgb(41 51 92)"
+                ctx.moveTo(j*tileSizeX, i*tileSizeY);
+                ctx.lineTo(j*tileSizeX, i*tileSizeY+tileSizeY);
+                ctx.stroke();
 
                 // Horizontal lines
-                if (m.maze[((xs*y)+x)].walls[1]) {
-                //if (true) {
-                    ctx.beginPath();
-                    ctx.lineStyle = "rgb(41 51 92)"
-                    ctx.moveTo(x*tileSizeX, (y+1)*tileSizeY);
-                    ctx.lineTo(x*tileSizeX + tileSizeX, (y+1)*tileSizeY);
-                    ctx.stroke();
-                }
+                ctx.beginPath();
+                ctx.lineStyle = "rgb(41 51 92)"
+                ctx.moveTo(0, i*tileSizeY);
+                ctx.lineTo(canvasSizeX, i*tileSizeY);
+                ctx.stroke();
             }
             offset = offset ? 0 : 1;
 

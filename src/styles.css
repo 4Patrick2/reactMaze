@@ -4,6 +4,13 @@
     --lightCyan: #C6F4FD;
     --orchidPink: #EBB4C9;
     --mimiPink: #F6D2E1;
+
+    --poppy: #DB2B39; /* (219, 43, 57) */
+    --delftBlue: #29335C; /* RGB(41 51 92) */
+    --rangeWeb: #F3A712; /* RGB(243 167 18) */
+    --sunset: #F0CEA0; /* RGB(240 206 160) */
+    --cambridgeBlue: #9DCBBA; /* RGB(157 203 186)*/
+    /* --walnutBrown: #F0CEA0; RGB(157 203 186) */
   }
   
 
@@ -13,7 +20,8 @@
 
 body{
     margin: 0;
-    background-color: var(--lightCyan);
+    /* background-color: white; */
+    /* background-color: var(--sunset); */
 }
 
 .container {
@@ -27,7 +35,7 @@ body{
 }
 
 .nav{
-    background-color: var(--sappire);
+    background-color: var(--delftBlue);
     color: white;
     display: flex;
     justify-content: space-between;
@@ -35,7 +43,7 @@ body{
     gap: 2rem;
     padding: 0rem;
     border-bottom-style: solid;
-    border-color: var(--pictonBlue);
+    border-color: var(--cambridgeBlue);
     border-width: .4rem;
 }
 
@@ -59,11 +67,11 @@ body{
 }
 
 .nav li.active {
-    background-color: var(--pictonBlue);
+    background-color: var(--cambridgeBlue);
 }
 
 .nav li:hover {
-    background-color: var(--lightCyan);
+    background-color: var(--sunset);
 }
 
 h1 {
